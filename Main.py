@@ -38,7 +38,7 @@ def handle_text(message):
     if message.text == 'Вернуться назад':
         user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
         user_markup.row('Спросить дз на завтра')
-        user_markup.row('Узнать расписание на завт1ра📰')
+        user_markup.row('Узнать расписание на завтра📰')
         bot.send_message(message.from_user.id,
                          "Что будем делать дальше?",
                          reply_markup=user_markup)
