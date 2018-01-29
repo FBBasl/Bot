@@ -1,12 +1,10 @@
 import telebot
-
+import time
 bot = telebot.TeleBot("486413931:AAF-xIPU2vPB8zIslULHuDd1VIXzVMMHo6k")
 
 upd = bot.get_updates()
 
-last_upd = upd[-1]
 
-message_from_user = last_upd.message
 
 @bot.message_handler(commands=['start'])
 def handle_start(message):
@@ -57,5 +55,14 @@ def handle_text(message):
         bot.send_message(message.chat.id, 'параграф 15.')
     if message.text == '7.Проект':
         bot.send_message(message.chat.id, 'Делать свой проект.')
-bot.polling(none_stop=True, interval=0)
+    if message.text == 'Привет':
+        bot.send_message(message.chat.id, 'Добро пожаловать!')
+    if message.text == 'Пока':
+        bot.send_message(message.chat.id, 'До свидания!')
+
+while True:
+    try:
+        bot.polling(none_stop=True)
+    except Exception as e:
+        time.sleep(15)
 
